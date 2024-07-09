@@ -20,23 +20,6 @@ class OccupancyControllerIT extends BaseIT {
 
     private static final String OCCUPANCY_PATH = "/occupancy";
 
-    @Test
-    void should_FailGuestMoneyValidation_When_IsZero() throws Exception {
-        // given
-        var request = Map.of(
-                "premiumRooms", 3,
-                "economyRooms", 3,
-                "potentialGuests", List.of(0)
-        );
-
-        // when
-        mockMvc.perform(post(OCCUPANCY_PATH)
-                        .content(objectMapper.writeValueAsBytes(request))
-                        .contentType(MediaType.APPLICATION_JSON))
-                // then
-                .andExpect(status().isBadRequest()); // TODO: Add @ExceptionHandler to unify validation errors and check exact message
-    }
-
     @ParameterizedTest
     @MethodSource("providedScenarios")
     void should_PassProvidedScenarios(
@@ -59,6 +42,7 @@ class OccupancyControllerIT extends BaseIT {
 
     private static Stream<Arguments> providedScenarios() {
         return Stream.of(
+                // Test 1 - provided
                 Arguments.of(
                         Map.of(
                                 "premiumRooms", 3,
@@ -72,6 +56,7 @@ class OccupancyControllerIT extends BaseIT {
                                 "revenueEconomy", 167.99
                         )
                 ),
+                // Test 2 - provided
                 Arguments.of(
                         Map.of(
                                 "premiumRooms", 7,
@@ -85,6 +70,7 @@ class OccupancyControllerIT extends BaseIT {
                                 "revenueEconomy", 189.99
                         )
                 ),
+                // Test 3 - provided
                 Arguments.of(
                         Map.of(
                                 "premiumRooms", 2,

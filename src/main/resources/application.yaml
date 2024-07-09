@@ -1,3 +1,5 @@
 spring:
   application:
     name: hotel-room-allocation
+  config:
+    import: classpath:hotel-room-allocation-config.yaml

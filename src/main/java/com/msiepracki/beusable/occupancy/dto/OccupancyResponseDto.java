@@ -1,4 +1,4 @@
-package com.msiepracki.beusable.occupancy;
+package com.msiepracki.beusable.occupancy.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

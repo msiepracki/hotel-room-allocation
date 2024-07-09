@@ -1,0 +1,3 @@
+hotel-room-allocation-config:
+  default-currency: EUR
+  premium-threshold: 100

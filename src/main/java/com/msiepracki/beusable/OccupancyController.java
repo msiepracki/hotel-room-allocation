@@ -1,7 +1,7 @@
 package com.msiepracki.beusable;
 
-import com.msiepracki.beusable.occupancy.OccupancyRequestDto;
-import com.msiepracki.beusable.occupancy.OccupancyResponseDto;
+import com.msiepracki.beusable.occupancy.dto.OccupancyRequestDto;
+import com.msiepracki.beusable.occupancy.dto.OccupancyResponseDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;

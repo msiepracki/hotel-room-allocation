@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import javax.money.Monetary;
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +30,7 @@ class MoneyConverterTest {
 
         var expectedCurrency = "EUR";
         when(hotelRoomAllocationConfig.getDefaultCurrency())
-                .thenReturn(expectedCurrency);
+                .thenReturn(Monetary.getCurrency(expectedCurrency));
 
         // when
         Money target = moneyConverter.toMoney(source);

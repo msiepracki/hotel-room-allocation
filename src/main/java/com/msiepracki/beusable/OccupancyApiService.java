@@ -19,8 +19,8 @@ public class OccupancyApiService {
     private final OccupancyListConverter occupancyListConverter;
 
     public OccupancyResponseDto calculateOccupancy(OccupancyRequestDto request) {
-        BookingList bookingList = bookingListConverter.toGuestList(request.potentialGuests());
-        OccupancyList occupancyList = occupancyListConverter.toRoomAvailabilityList(request);
+        BookingList bookingList = bookingListConverter.toBookingList(request.potentialGuests());
+        OccupancyList occupancyList = occupancyListConverter.toOccupancyList(request);
 
         OccupancyResultList occupancyResultList = occupancyService.calculateOccupancy(
                 bookingList,

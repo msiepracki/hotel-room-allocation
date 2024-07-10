@@ -14,16 +14,15 @@ public class BookingListConverter {
 
     private final MoneyConverter moneyConverter;
 
-    public BookingList toGuestList(List<BigDecimal> moneyValues) {
-        List<Booking> bookings = moneyValues.stream()
-                .map(this::toGuest)
-                .toList();
-        return BookingList.builder()
-                .bookings(bookings)
-                .build();
+    public BookingList toBookingList(List<BigDecimal> moneyValues) {
+        var bookingListBuilder = BookingList.builder();
+        moneyValues.stream()
+                .map(this::toBooking)
+                .forEach(bookingListBuilder::booking);
+        return bookingListBuilder.build();
     }
 
-    private Booking toGuest(BigDecimal moneyValue) {
+    private Booking toBooking(BigDecimal moneyValue) {
         Money money = moneyConverter.toMoney(moneyValue);
         return Booking.builder()
                 .price(money)

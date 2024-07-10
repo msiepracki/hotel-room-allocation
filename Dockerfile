@@ -6,6 +6,10 @@ RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn package -DskipTests
 
+FROM build AS test
+WORKDIR /app
+CMD ["mvn", "test"]
+
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar

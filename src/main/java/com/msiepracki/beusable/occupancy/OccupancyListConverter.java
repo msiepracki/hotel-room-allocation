@@ -9,7 +9,7 @@ import java.util.List;
 @Component
 public class OccupancyListConverter {
 
-    public OccupancyList toRoomAvailabilityList(OccupancyRequestDto occupancyRequestDto) {
+    public OccupancyList toOccupancyList(OccupancyRequestDto occupancyRequestDto) {
         return OccupancyList.builder()
                 .occupancy(Occupancy.builder()
                         .bookingType(BookingType.PREMIUM)

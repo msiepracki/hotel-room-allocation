@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @Builder
 public class OccupancyResultList {
-    @Singular("roomAvailabilityResult")
+    @Singular
     private List<OccupancyResult> occupancyResults;
 }

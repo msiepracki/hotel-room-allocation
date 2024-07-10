@@ -9,6 +9,6 @@ import java.util.Set;
 @Data
 @Builder
 public class OccupancyList {
-    @Singular("occupancy")
+    @Singular
     private Set<Occupancy> occupancies;
 }

@@ -17,3 +17,12 @@ Author: [Mateusz Siepracki](mateusz.siepracki@gmail.com)
 ## Using Swagger
 
 After running, you can navigate to http://localhost:8080/swagger-ui/index.html and see exposed endpoints
+
+## Running tests exclusively
+
+There's possibility of running tests exclusively without running an application. For that, use `tests-only.sh` which is next to `run.sh`.
+
+Test are based on Maven so if you have Maven installed and configured, running below in root catalog of project will result with the same
+   ```shell
+   mvn test
+   ```
